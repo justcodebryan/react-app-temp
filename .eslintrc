@@ -28,7 +28,7 @@
       }
     ]
   },
-  "ignorePatterns": ["node_modules", "build", "dist", "public"],
+  "ignorePatterns": ["node_modules", "build", "dist", "public", "pnpm-lock.yaml"],
   "settings": {
     "react": {
       "version": "18"
