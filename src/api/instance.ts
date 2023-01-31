@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { errorHandler, requestHandler, responseHandler } from './interceptor'
+import { requestHandler } from './interceptor'
 
 const { Axios } = axios
 
@@ -9,7 +9,6 @@ const instance = new Axios({
 
 instance.interceptors.request.use(requestHandler)
 
-instance.interceptors.response.use(responseHandler)
-instance.interceptors.response.use(errorHandler)
+// instance.interceptors.response.use(responseHandler)
 
 export default instance

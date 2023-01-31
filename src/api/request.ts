@@ -33,8 +33,8 @@ export const $request = <TResponse = any, TParams = any, TData = any>(
 
 export const $get = <TResponse = any, TParams extends object = AnyObject>(
   url: string,
-  params: TParams
-): CustomResponse<TResponse> => $request<TResponse>(url, 'GET', params, {})
+  params?: TParams
+): CustomResponse<TResponse> => $request<TResponse>(url, 'GET', params || {}, {})
 
 export const $post = <TResponse = any, TData extends object = AnyObject>(
   url: string,

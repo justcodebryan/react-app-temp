@@ -3,10 +3,14 @@ import useEffectOnce from './hooks/useEffectOnce'
 import { Link, useRoutes } from 'raviger'
 import routes from './routes'
 import { UserDataType } from './types/user'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
+import { GlobalContext, GlobalContextType, defaultGlobalContext } from './context/GlobalContext'
 
 function App() {
   const route = useRoutes(routes)
+  const [globalContext, setGlobalContext] = useState<GlobalContextType>({
+    ...defaultGlobalContext,
+  })
 
   // get list data from koa-temp repo.
   // domain: http://localhost:3000/api
@@ -27,12 +31,14 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<div>Loading...</div>}>
-        <h1>Vite + React</h1>
-        <Link href="/user">User</Link>
-        <Link href="/user/1">User 1 Page</Link>
-        {route}
-      </Suspense>
+      <GlobalContext.Provider value={{ ...globalContext, setGlobalContext }}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <h1>Vite + React</h1>
+          <Link href="/user">User</Link>
+          <Link href="/user/1">User 1 Page</Link>
+          {route}
+        </Suspense>
+      </GlobalContext.Provider>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import { DEFAULT_MODAL_CONTAINER_ID } from '@/utils/constants'
 import { PropsWithChildren } from 'react'
 import ReactDOM from 'react-dom'
 
@@ -9,7 +10,7 @@ type ModalProps = PropsWithChildren<{
 }>
 
 const Modal = (props: ModalProps) => {
-  const { children, containerElement } = props
+  const { children, containerElement = DEFAULT_MODAL_CONTAINER_ID } = props
 
   const container = typeof containerElement === 'string' ? document.getElementById(containerElement) : containerElement
 
