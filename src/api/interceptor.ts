@@ -10,6 +10,7 @@ export const responseHandler = (response: AxiosResponse) => {
   return response.data
 }
 
+// TODO: handler the error response and get error code after synced with backend.
 export const errorHandler = (err: AxiosResponse) => {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   const status = err.data.response?.status || 500
