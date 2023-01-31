@@ -1,4 +1,4 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
 // Add a request interceptor
 export const requestHandler = (config: AxiosRequestConfig) => {
   // Do something before request is sent
@@ -10,9 +10,9 @@ export const responseHandler = (response: AxiosResponse) => {
   return response.data
 }
 
-export const errorHandler = (err: AxiosError) => {
+export const errorHandler = (err: AxiosResponse) => {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
-  const status = err.response?.status || 500
+  const status = err.data.response?.status || 500
   return status
   // we can handle global errors here
   // switch (
