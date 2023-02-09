@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext } from 'react'
 
 export type GlobalContextType = {
   username: string
@@ -11,4 +11,4 @@ export const defaultGlobalContext: GlobalContextType = {
   gender: 0,
 }
 
-export const GlobalContext = React.createContext<GlobalContextType>(defaultGlobalContext)
+export const GlobalContext = createContext<GlobalContextType>(defaultGlobalContext)

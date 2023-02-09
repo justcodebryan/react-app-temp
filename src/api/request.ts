@@ -1,8 +1,6 @@
 import { AnyObject } from '@/types'
-import { AxiosResponse } from 'axios'
+import { CustomResponse } from '@/types/api'
 import instance from './instance'
-
-type CustomResponse<TResponse = any, TConfig = any> = Promise<void | AxiosResponse<TResponse, TConfig>>
 
 export const $request = <TResponse = any, TParams = any, TData = any>(
   url: string,

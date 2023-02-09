@@ -1,12 +1,12 @@
 import { lazy } from 'react'
 
 // lazy load components
-const UserPage = lazy(() => import('@/pages/User'))
-const UserDetail = lazy(() => import('@/pages/UserDetail'))
+const CurrencyPage = lazy(() => import('@/pages/CurrencyPage'))
+const CurrencyDetail = lazy(() => import('@/pages/CurrencyDetail'))
 
 const routes = {
-  '/user': () => <UserPage />,
-  '/user/:id': ({ id }: { id: string }) => <UserDetail id={id} />,
+  '/currency': () => <CurrencyPage />,
+  '/currency/:id': ({ id }: { id: string }) => <CurrencyDetail id={id} />,
 }
 
 export default routes

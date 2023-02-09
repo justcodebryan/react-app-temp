@@ -1,14 +1,14 @@
 import { $get } from '@/api'
-import { GlobalContext } from '@/context/GlobalContext'
+import { GlobalContext } from '@/contexts/GlobalContext'
 import useEffectOnce from '@/hooks/useEffectOnce'
-import { UserDataType } from '@/types/user'
+import { CurrencyDataType } from '@/types/currency'
 import { useContext } from 'react'
 
-const UserDetail = ({ id }: { id: string }) => {
+const CurrencyDetail = ({ id }: { id: string }) => {
   const { username, gender, setGlobalContext } = useContext(GlobalContext)
 
   const getTest = async () => {
-    const result = await $get<UserDataType>(`/user/${id}`)
+    const result = await $get<CurrencyDataType>(`/currency/${id}`)
 
     if (!result) return
 
@@ -35,4 +35,4 @@ const UserDetail = ({ id }: { id: string }) => {
   )
 }
 
-export default UserDetail
+export default CurrencyDetail

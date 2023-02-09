@@ -9,9 +9,7 @@ type ModalProps = PropsWithChildren<{
   onCancel?: (...args: any[]) => any
 }>
 
-const Modal = (props: ModalProps) => {
-  const { children, containerElement = DEFAULT_MODAL_CONTAINER_ID } = props
-
+const Modal = ({ children, containerElement = DEFAULT_MODAL_CONTAINER_ID }: ModalProps) => {
   const container = typeof containerElement === 'string' ? document.getElementById(containerElement) : containerElement
 
   // make sure there is a container to be rendered.
